@@ -533,6 +533,7 @@ main {
 }
 
 .about-text p {
+  text-align: justify;
   margin-bottom: 15px;
   text-transform: capitalize;
 }
@@ -638,7 +639,8 @@ main {
 }
 
 .testimonials-item-title {
-  margin-bottom: 7px;
+  text-align: center;
+  padding: 5px;
 }
 
 .testimonials-text {
@@ -650,9 +652,8 @@ main {
   line-clamp: 4;
   -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
-  overflow: hidden;
+  overflow-x: hidden;
 }
-
 /**
  * #testimonials-modal
  */
@@ -1275,6 +1276,7 @@ textarea.form-input::-webkit-resizer {
   position: relative;
   width: 100%;
   background: var(--border-gradient-onyx);
+  background-color: #f7cb45;
   color: var(--orange-yellow-crayola);
   display: flex;
   justify-content: center;
@@ -1548,8 +1550,8 @@ textarea.form-input::-webkit-resizer {
   }
 
   .testimonials-item-title {
-    margin-bottom: 10px;
-    margin-left: 95px;
+    text-align: center;
+    padding: 5px;
   }
 
   .testimonials-text {
