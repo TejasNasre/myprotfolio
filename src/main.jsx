@@ -12,6 +12,7 @@ import About from "./pages/About.jsx";
 import Experience from "./pages/Experience.jsx";
 import Home from "./pages/Home.jsx";
 import Contact from "./pages/Contact.jsx";
+import Notfound from "./pages/Notfound.jsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -20,6 +21,7 @@ const router = createBrowserRouter(
       <Route path="about" element={<About />} />
       <Route path="experience" element={<Experience />} />
       <Route path="contact" element={<Contact />} />
+      <Route path="*" element={<Notfound />} />
     </Route>
   )
 );

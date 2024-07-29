@@ -1,32 +1,31 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { GiHamburgerMenu } from "react-icons/gi";
+import { IoClose } from "react-icons/io5";
 
 function Header() {
   const [open, setOpen] = useState(false);
 
+  useEffect(() => {
+    if (open) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, [open]);
+
   return (
     <>
-      <div className="bg-[#111111] w-full text-[#e7e7e7] pt-10 relative">
-        <div
-          className="px-5 flex justify-end cursor-pointer md:hidden"
-          onClick={() => {
-            return setOpen(!open);
-          }}
-        >
-          {open ? (
-            <h1 className="flex text-black z-[999] text-xl">
-              &lt;&lt;&lt;&lt;
-            </h1>
-          ) : (
-            <h1 className="text-xl">&gt;&gt;&gt;&gt;</h1>
-          )}
-        </div>
+      <div className="bg-[#111111] w-full text-[#e7e7e7] relative">
         <div
           className={`w-full ${
             open
-              ? `flex absolute h-screen top-0 bg-white text-black flex-col justify-center items-center overflow-hidden`
+              ? `fixed top-0 left-0 h-screen bg-white z-[999] text-black flex flex-col justify-center items-center overflow-hidden`
               : "hidden"
-          } md:flex flex-col gap-5 md:flex-row md:justify-center md:gap-10`}
+          } md:flex flex-col gap-5 md:flex-row md:justify-center pt-10 md:gap-10`}
         >
           <Link
             to="/"
@@ -52,6 +51,22 @@ function Header() {
           >
             Contact
           </Link>
+        </div>
+        <div
+          className="px-5 w-full flex justify-end cursor-pointer absolute top-0 mt-6 md:hidden"
+          onClick={() => {
+            return setOpen(!open);
+          }}
+        >
+          {open ? (
+            <h1 className="flex text-black z-[9999] text-xl">
+              <IoClose className="text-2xl" />
+            </h1>
+          ) : (
+            <h1 className="text-xl">
+              <GiHamburgerMenu className="text-xl" />
+            </h1>
+          )}
         </div>
       </div>
     </>
